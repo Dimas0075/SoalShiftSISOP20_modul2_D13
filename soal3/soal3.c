@@ -94,7 +94,7 @@ char dir[50] = "/home/dimas/Documents/Modul2/soal3/jpg/" , dir2[50], dir3[50]="/
 dp = opendir("/home/dimas/Documents/Modul2/soal3/jpg");
 if(dp == NULL)
 {
-perror("Cannot open directory");
+puts("Cannot open directory");
 return(1);
 }
 
