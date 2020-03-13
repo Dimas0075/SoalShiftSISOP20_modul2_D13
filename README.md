@@ -134,8 +134,8 @@ strcpy(dir2,dir);
 strcat(dir2,entry->d_name);
 strcat(dir2,"/coba1.txt");
 printf("%s\n",dir2);
-char *argv[] = {"touch",dir2, NULL};
-execv("/usr/bin/touch", argv);
+char *argv[] = {"echo","$null", ">>", dir2, NULL};
+execv("/bin/echo", argv);
 }
 
 if (cid7 == 0) {
@@ -144,8 +144,8 @@ strcpy(dir2,dir);
 strcat(dir2,entry->d_name);
 strcat(dir2,"/coba2.txt");
 printf("%s\n",dir2);
-char *argv[] = {"touch",dir2, NULL};
-execv("/usr/bin/touch", argv);
+char *argv[] = {"echo","$null",">>",dir2, NULL};
+execv("/bin/echo", argv);
 }
 ```
 Membuat coba1.txt dan coba2.txt. Untuk file coba2.txt akan dibuat setelah 3 detik dengan fungsi **sleep(3)**
