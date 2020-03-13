@@ -1,4 +1,7 @@
 # Praktikum Modul 2 Sistem Operasi 2020
+## Kelompok D13
+Herri Purba (05111840000056)<br/>
+Nugroho Dimas A (05111840000075)
 
 
 ### Nomor 3
