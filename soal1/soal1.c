@@ -117,9 +117,9 @@ int main(int argc , char *argv[]) {
             
         }
         else{
-                printf("Error\n");
-                return 0;
-            }
+            printf("Error\n");
+            return 0;
+        }
     }
   
     
@@ -181,14 +181,14 @@ int main(int argc , char *argv[]) {
             }
         }
         else{
-                printf("Error\n");
-                return 0;
-            }
+            printf("Error\n");
+            return 0;
+        }
     }
     else{
-                printf("Error\n");
-                return 0;
-            }
+        printf("Error\n");
+        return 0;
+    }
             
     sleep(1);
   }
