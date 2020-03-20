@@ -53,10 +53,15 @@ int main(int argc , char *argv[]) {
     nowM = now_tm->tm_min;
     nowH = now_tm->tm_hour;
 
+    if(argc>=5){
+        printf("Error\n");
+        return 0;
+      }
+
 
     if(strcmp(argv[1],"*")==0){
         if(strcmp(argv[2],"*")==0){
-            if(strcmp(argv[3],"*")==0){
+            if(strcmp(argv[3],"*")==0){         // ***
                 while(1){
                    if(chld == 0){
                     execvp("/bin/bash",bash);
@@ -66,74 +71,125 @@ int main(int argc , char *argv[]) {
                 timeinfo = localtime ( &now );
                 }
             }
-            else if(atoi(argv[2]) == nowM){
+            else if(atoi(argv[3]) == nowH){         //**A
                 while (1) {
-                  if(atoi(argv[1]) == nowS && atoi(argv[1]) <60 && atoi(argv[1]) >0 &&argv[3]) == nowH && atoi(argv[3]) <24 && atoi(argv[3]) >0 &&atoi(argv[2]) == nowM && atoi(argv[2]) <60 && atoi(argv[2]) >0){
-                     if(chld == 0){
-                          execvp("/bin/bash",bash);
-                      }
-                    }
-                 sleep(1);
-                 time(&now);
-                timeinfo = localtime ( &now );
-                  }
-            }   
-            else{
-                while (1) {
-                    if(argv[3]) == nowH && atoi(argv[3]) <24 && atoi(argv[3]) >0 ){
-                    if(chld == 0){
-                        execvp("/bin/bash",bash);
-                    }
+                    if(atoi(argv[3]) <24 && atoi(argv[3]) >0 ){
+                        if(chld == 0){
+                            execvp("/bin/bash",bash);
+                        }
                     }
                     sleep(1);
                     time(&now);
                     timeinfo = localtime ( &now );
                 }
             }
-        }else if(){
-                while (1) {
-                  if(atoi(argv[1]) == nowS && atoi(argv[1]) <60 && atoi(argv[1]) >0 &&atoi(argv[2]) == nowM && atoi(argv[2]) <60 && atoi(argv[2]) >0){
-                     if(chld == 0){
-                          execvp("/bin/bash",bash);
-                      }
-                    }
-                 sleep(1);
-                 time(&now);
-                timeinfo = localtime ( &now );
-                  }
-        }
-        
-    
-        else{
-            while (1) {
-                if(atoi(argv[2]) == nowM && atoi(argv[2]) <60 && atoi(argv[2]) >0){
-                if(chld == 0){
+            else{
+                printf("Error\n");
+                return 0;
+            }
+        }else if(atoi(argv[2]) == nowM){
+            if(strcmp(argv[3],"*")==0 && atoi(argv[2]) <60 && atoi(argv[2]) >=0){     //*A*
+                while(1){
+                   if(chld == 0){
                     execvp("/bin/bash",bash);
-                }
-                }
+                 }
                 sleep(1);
                 time(&now);
                 timeinfo = localtime ( &now );
-
+                }
             }
+            else if(atoi(argv[3]) == nowH){     //*AA
+                while (1) {
+                    if(atoi(argv[3]) <24 && atoi(argv[3]) >=0 && atoi(argv[2]) <60 && atoi(argv[2]) >=0 && atoi(argv[1]) <60 && atoi(argv[1]) >=0){
+                        if(chld == 0){
+                            execvp("/bin/bash",bash);
+                        }
+                    }
+                    sleep(1);
+                    time(&now);
+                    timeinfo = localtime ( &now );
+                }
+            }
+            else{
+                printf("Error\n");
+                return 0;
+            }
+            
         }
-    
+        else{
+                printf("Error\n");
+                return 0;
+            }
     }
   
     
     
-    else{
-          while (1) {
-            if(atoi(argv[1]) == nowS && atoi(argv[1]) <60 && atoi(argv[1]) >0){
-              if(chld == 0){
-                execvp("/bin/bash",bash);
-              }
+    else if(atoi(argv[1]) == nowS){
+        if(strcmp(argv[2],"*")==0){
+            if(strcmp(argv[3],"*")==0 && atoi(argv[1]) <60 && atoi(argv[1]) >=0){         //A**
+                while(1){
+                   if(chld == 0){
+                    execvp("/bin/bash",bash);
+                 }
+                sleep(1);
+                time(&now);
+                timeinfo = localtime ( &now );
+                }
             }
-            sleep(1);
-            time(&now);
-            timeinfo = localtime ( &now );
-          }
+            else if(atoi(argv[3]) == nowH){     //A*A
+                while (1) {
+                    if(atoi(argv[3]) <24 && atoi(argv[3]) >=0  && atoi(argv[1]) <60 && atoi(argv[1]) >=0 ){
+                        if(chld == 0){
+                            execvp("/bin/bash",bash);
+                        }
+                    }
+                    sleep(1);
+                    time(&now);
+                    timeinfo = localtime ( &now );
+                }
+            }
+            else{
+                printf("Error\n");
+                return 0;
+            }
+        }else if(atoi(argv[2]) == nowM){
+            if(strcmp(argv[3],"*")==0 && atoi(argv[2]) <60 && atoi(argv[2]) >=0 && atoi(argv[1]) <60 && atoi(argv[1]) >=0){     //AA*
+                while(1){
+                   if(chld == 0){
+                    execvp("/bin/bash",bash);
+                 }
+                sleep(1);
+                time(&now);
+                timeinfo = localtime ( &now );
+                }
+            }
+            else if(atoi(argv[3]) == nowH){     //AAA
+                while (1) {
+                    if(atoi(argv[3]) <24 && atoi(argv[3]) >=0 && atoi(argv[2]) <60 && atoi(argv[2]) >=0 && atoi(argv[1]) <60 && atoi(argv[1]) >=0 ){
+                        if(chld == 0){
+                            execvp("/bin/bash",bash);
+                        }
+                    }
+                    sleep(1);
+                    time(&now);
+                    timeinfo = localtime ( &now );
+                }
+            }
+            else{
+                printf("Error\n");
+                return 0;
+            }
+        }
+        else{
+                printf("Error\n");
+                return 0;
+            }
     }
+    else{
+                printf("Error\n");
+                return 0;
+            }
+            
     sleep(1);
   }
 }
