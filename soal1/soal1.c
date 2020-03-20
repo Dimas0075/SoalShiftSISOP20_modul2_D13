@@ -66,7 +66,7 @@ int main(int argc , char *argv[]) {
                 timeinfo = localtime ( &now );
                 }
             }
-            else if(){
+            else if(atoi(argv[2]) == nowM){
                 while (1) {
                   if(atoi(argv[1]) == nowS && atoi(argv[1]) <60 && atoi(argv[1]) >0 &&argv[3]) == nowH && atoi(argv[3]) <24 && atoi(argv[3]) >0 &&atoi(argv[2]) == nowM && atoi(argv[2]) <60 && atoi(argv[2]) >0){
                      if(chld == 0){
